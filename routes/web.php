@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
+});
+
+Auth::routes();
+
+Route::namespace('Admin')->group(function () {
+    Route::get('/', function () {
+        return view('layouts/home');
+    })->middleware('auth');
 });
