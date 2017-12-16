@@ -3,22 +3,16 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class CoinController extends Controller
 {
-
-    public function showStratis()
+    public function showCoin($id)
     {
-        $client = new Client([
-            // Base URI is used with relative requests
-            'base_uri' => 'http://httpbin.org',
-            // You can set any number of default request options.
-            'timeout'  => 10.0,
-        ]);
-
-        // Create a client with a base URI
-        $client = new GuzzleHttp\Client(['base_uri' => 'https://api.coinmarketcap.com/v1/ticker/stratis/']);
-        // Send a request to https://foo.com/api/test
-        dd($client);
+        //Defineer Coin en maak request naar CMC
+        $client = new Client();
+        $results = $client->get('https://api.coinmarketcap.com/v1/ticker/'.$id.'/')->getBody();
+        //$coinObj = json_decode($result);
+        return view('layouts.coin')->with('results', json_decode($results, true));;
     }
 }

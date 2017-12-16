@@ -25,4 +25,6 @@ Route::get('/', function () {
     return view('layouts/home');
 })->middleware('auth');
 
-Route::get('/stratis', 'CoinController@showStratis');
+Route::get('/coin/{id}', 'CoinController@showCoin', function(){
+    return view('layouts/home');
+});
