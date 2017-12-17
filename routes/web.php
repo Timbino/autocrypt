@@ -21,7 +21,7 @@ Route::namespace('Admin')->group(function () {
 
 });
 
-Route::get('/', function () {
+Route::get('/', 'CoinController@getCoin', function () {
     return view('layouts/home');
 })->middleware('auth');
 

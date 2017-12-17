@@ -13,7 +13,7 @@ class CreateUserCoinTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_coin', function (Blueprint $table) {
+        Schema::create('coin_user', function (Blueprint $table) {
             $table->integer('coin_id')->unsigned();
             $table->integer('user_id')->unsigned();
 

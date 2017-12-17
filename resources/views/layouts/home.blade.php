@@ -13,7 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @foreach ($coins as $coin)
+                        {{$coin->name}}
+                    @endforeach
                     You are logged in!
                 </div>
             </div>

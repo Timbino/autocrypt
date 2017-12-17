@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use App\User;
+use App\Coin;
+use DB;
 
 class CoinController extends Controller
 {
@@ -14,5 +17,12 @@ class CoinController extends Controller
         $results = $client->get('https://api.coinmarketcap.com/v1/ticker/'.$id.'/')->getBody();
         //$coinObj = json_decode($result);
         return view('layouts.coin')->with('results', json_decode($results, true));;
+    }
+
+    public function getCoin()
+    {
+        $coins = DB::table('coins')->get();
+        //var_dump($query);
+        return view('layouts.home')->with('coins', $coins);
     }
 }
