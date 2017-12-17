@@ -21,8 +21,10 @@ class CoinController extends Controller
 
     public function getCoin()
     {
-        $coins = DB::table('coins')->get();
-        //var_dump($query);
-        return view('layouts.home')->with('coins', $coins);
+        $coin = User::find(1)->coins();
+        dd($coin);
+        /* $coins = DB::table('coins')->get();
+
+        return view('layouts.home')->with('coins', $coins);*/
     }
 }

@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use d
+
 
 class User extends Authenticatable
 {
@@ -29,6 +31,6 @@ class User extends Authenticatable
 
     public function coins()
     {
-        return $this->belongsToMany('App\Coin');
+        return $this->belongsToMany('Coin', 'coin_user');
     }
 }
