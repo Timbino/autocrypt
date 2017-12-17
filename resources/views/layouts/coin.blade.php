@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    @foreach($results['results'] as $coin)
-                        Price: {{ $coin['id'] }}
+                    @foreach($results as $coin)
+                        Price: {{ $coin['price_usd'] }}
                     @endforeach
                 </div>
             </div>
