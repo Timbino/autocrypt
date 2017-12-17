@@ -16,7 +16,6 @@
                     @foreach ($coins as $coin)
                         {{$coin->name}}
                     @endforeach
-                    You are logged in!
                 </div>
             </div>
         </div>
